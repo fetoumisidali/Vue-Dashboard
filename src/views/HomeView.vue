@@ -1,33 +1,19 @@
 <script setup lang="ts">
-import StatCard from '@/components/StatCard.vue';
-import { Box, ShoppingBag, Tag, UsersRound } from 'lucide-vue-next';
+import NewStatCard from '@/components/NewStatCard.vue';
+import { AlertTriangle, Box, DollarSign, ShoppingCart } from 'lucide-vue-next';
 
 </script>
 
 <template>
     <section class="space-y-6">
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
-            <StatCard label="Total Products" :value="12">
-                <template #icon>
-                    <Box class="w-5 h-5 text-blue-600" />
-                </template>
-            </StatCard>
-           <StatCard label="Total Orders" :value="6">
-                <template #icon>
-                    <ShoppingBag class="w-5 h-5 text-red-600" />
-                </template>
-            </StatCard>
-            <StatCard label="Total Categories" :value="100">
-                <template #icon>
-                    <Tag class="w-5 h-5 text-pink-600" />
-                </template>
-            </StatCard>
-            
-            <StatCard label="Total Categories" :value="100">
-                <template #icon>
-                    <UsersRound class="w-5 h-5 text-green-600" />
-                </template>
-            </StatCard>
+            <NewStatCard :icon="ShoppingCart" title="Today Orders" value="120" accentColor="bg-red-500"
+                iconBg="bg-red-500" />
+            <NewStatCard :icon="Box" title="Products" value="120" accentColor="bg-blue-500" iconBg="bg-blue-500" />
+            <NewStatCard :icon="AlertTriangle" title="Low Stock" value="0" accentColor="bg-amber-700"
+                iconBg="bg-amber-700" />
+            <NewStatCard :icon="DollarSign" title="Sales" value="1000" accentColor="bg-green-500"
+                iconBg="bg-green-500" />
         </div>
         <div class="p-4 bg-red-500 h-36 shadow"></div>
         <div class="p-4 bg-green-500 h-36 shadow"></div>

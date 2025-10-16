@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+.sidebar {
+  @apply bg-gray-900 text-white min-h-screen hidden sm:block;
+}
+
+.flex-between{
+  @apply flex items-center justify-between;
+}
+
+button{
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

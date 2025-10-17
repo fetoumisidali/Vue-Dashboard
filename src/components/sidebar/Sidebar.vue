@@ -27,13 +27,24 @@ const navItems = [
     { name: 'orders', label: 'Orders', icon: TicketCheck },
 ];
 
-const isCollapsed = ref(false);
+const isCollapsed = ref(localStorage.getItem('sidebar-collapsed') === 'true');
 
 const toggleSidebar = () => {
     isCollapsed.value = !isCollapsed.value;
 };
 
+onMounted(() => {
+  const savedState = localStorage.getItem('sidebar-collapsed');
+  if (savedState !== null) {
+    isCollapsed.value = savedState === 'true';
+  }
+});
 
+
+// Watch for changes and save to localStorage
+watch(isCollapsed, (newValue) => {
+    localStorage.setItem('sidebar-collapsed', newValue.toString());
+}, { immediate: true });
 
 
 </script>

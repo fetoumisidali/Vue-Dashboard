@@ -53,19 +53,8 @@
             </div>
         </div>
 
-        <div v-if="mode === 'bulk'" class="w-full bg-white p-6 rounded-sm border border-gray-200 ">
-            <form action="">
-                <div class="grid grid-cols-5 gap-2">
-
-                    <form-input label="Test Name" placeholder="You Need To Enter Something" required />
-                    <form-input label="Price" placeholder="0.00" type="number" step="0.01" min="0" required />
-                    <form-input label="CODE" placeholder="Product CODE" />
-                    <form-input label="Category" placeholder="Category" required />
-                    <form-input label="Stock" placeholder="0" type="number" step="1" min="0" />
-                    
-                </div>
-
-            </form>
+        <div v-if="mode === 'bulk'" class="w-full bg-white p-2 rounded-lg border border-gray-200 ">
+           <BulkProductForm />
         </div>
     </section>
 </template>
@@ -75,6 +64,7 @@ import FormInput from '@/components/FormInput.vue';
 
 
 import { ref } from 'vue';
+import BulkProductForm from './components/BulkProductForm.vue';
 
 const mode = ref('single');
 

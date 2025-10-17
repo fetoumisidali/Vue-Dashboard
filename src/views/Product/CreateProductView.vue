@@ -63,10 +63,22 @@
 import FormInput from '@/components/FormInput.vue';
 
 
-import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { computed } from 'vue';
 import BulkProductForm from './components/BulkProductForm.vue';
 
-const mode = ref('single');
+const route = useRoute();
+const router = useRouter();
+
+const mode = computed({
+  get: () => route.query.mode || 'single',
+  set: (newMode) => {
+    router.replace({
+      query: { ...route.query, mode: newMode }
+    });
+  }
+});
+
 
 
 </script>
